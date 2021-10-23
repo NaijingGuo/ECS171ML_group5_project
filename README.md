@@ -1,94 +1,101 @@
 # ECS171ML_group5_project
-# Data Visulaization and Pre-Processing
+## Data Visulaization and Pre-Processing
+**Summary: all catagorical values to numerical values and min_max normalization for all parameters**
+
 i. Gender
-=> In this column, we simply mapped like following:
+=> For this column, we simply mapped as follows:
 Female = 0
 Male = 1
 
 ii. Age 
-=> In this column, we are performing the normalization operation so that we can set the value between 0 & 1.
+=> For this column, we did min_max normalization so that all values are between 0 & 1.
 
 iii. Height
-=> In this column, we are agian perfoming the normalization operation; setting the max. value = 1 & min. value= 0
+=> For this column, we did min_max normalization so that all values are between 0 & 1.
 
 iv. Weight
-=> In this column, we are agian perfoming the normalization operation; setting the max. value = 1 & min. value= 0
+=> For this column, we did min_max normalization so that all values are between 0 & 1.
 
 v. family_history_with_overweight
-=> This column basically has yes/no(binary) values. So we mapped the data like following:
+=> This column has yes/no (binary) values. So we mapped the data as follows:
 yes = 1
 no = 0
 
 vi. FAVC
-=> This column basically has yes/no(binary) values. So we mapped the data like following:
+=> This column has yes/no (binary) values. So we mapped the data as follows:
 yes = 1
 no = 0
 
 vii. FCVC
-=> In this, column, we are basically perfoming the normalization operation; setting the max. value = 1 & min. value= 0
+=> For this column, we did min_max normalization so that all values are between 0 & 1.
 
 viii. NCP
-=> This column basically has yes/no(binary) values. So we mapped the data like following:
+=> This column basically has yes/no (binary) values. So we mapped the data as follows:
 yes = 1
 no = 0
 
 ix. CAEC
-=> In this column, we are mapping the data like following:
-no = 0;
+=> In this column, we are mapped the data as follows:
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;no = 0;
 sometimes = 1;
 frequently = 2;
- and then we are perfoming the normalization operation; setting the max. value = 0  and min. value = 1 
+Always = 3;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;and then we did min_max normalization so that all values are between 0 & 1.
 
 x. Smoke
-=> This column basically has yes/no(binary) values. So we mapped the data like following:
+=> This column has yes/no (binary) values. So we mapped the data as follows:
 yes = 1
 no = 0
 
 xi. CH2O
-=> In this, column, we are basically perfoming the normalization operation; setting the max. value = 1 & min. value= 0
+=> For this column, we did min_max normalization so that all values are between 0 & 1.
 
 xii. SCC
-=> This column basically has yes/no(binary) values. So we mapped the data like following:
+=> This column has yes/no(binary) values. So we mapped the data as follows:
 yes = 1
 no = 0
 
 xiii. FAF
-=> In this, column, we are basically perfoming the normalization operation; setting the max. value = 1 & min. value= 0
+=> For this column, we did min_max normalization so that all values are between 0 & 1.
 
 xiv. TUE
-=> In this, column, we are basically perfoming the normalization operation; setting the max. value = 1 & min. value= 0
+=> For this column, we did min_max normalization so that all values are between 0 & 1.
 
 xv. CALC
-=> In this column, we are mapping the data like following:
+=> In this column, we are mapping the data as follows:
 
-no = 0;
-sometimes = 1;
-frequently = 2;
+&nbsp;&nbsp;&nbsp;&nbsp;no = 0;
+Sometimes = 1;
+Frequently = 2;
+Always = 3
 
-and then we are perfoming the normalization operation; setting the max. value = 0  and min. value = 1 
+&nbsp;&nbsp;&nbsp;&nbsp;and then we did min_max normalization so that all values are between 0 & 1.
 
 xvi. MTRANS
-=> In this column, we are mapping the data like following:
+=> In this column, we mapped the catagories to numbers as follows:
 
-Walking = 0
-Automobile = 1
+&nbsp;&nbsp;&nbsp;&nbsp;Automobile = 0
+Motorbike = 1
 Public_transportaion = 2
-Motorbike = 3
+Walking = 3
 
-and then we are perfoming the normalization operation; setting the max. value = 0  and min. value = 1
+&nbsp;&nbsp;&nbsp;&nbsp;and then we did min_max normalization so that all values are between 0 & 1.
 
 xvii. NObeyesdad
-=> In this column, we are mapping the data like following:
+=> In this column, we mapped the catagories to numbers as follows:
 
-Insufficient_Weight = 0
-Normal_Weight = 1
-Overweight_Level_I = 2
-Overweight_Level_II = 3
-Obesity_Type_I = 4
-Obesity_Type_II = 5 
-
-and then we are perfoming the normalization operation; setting the max. value = 0  and min. value = 1 
+&nbsp;&nbsp;&nbsp;&nbsp;Insufficient_Weight = 0
+Normal_Weight = 1;
+Overweight_Level_I = 2;
+Overweight_Level_II = 3;
+Overweight_Level_III = 4;
 
 
-
+&nbsp;&nbsp;&nbsp;&nbsp;Obesity_Type_I = 5;
+Obesity_Type_II = 6;
+Obesity_Type_III = 7;
 
