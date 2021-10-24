@@ -81,7 +81,8 @@ xvi. MTRANS
 &nbsp;&nbsp;&nbsp;&nbsp;Automobile = 0
 Motorbike = 1
 Public_transportaion = 2
-Walking = 3
+Bike = 3
+Walking = 4
 
 &nbsp;&nbsp;&nbsp;&nbsp;and then we did min_max normalization so that all values are between 0 & 1.
 
