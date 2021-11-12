@@ -9,7 +9,7 @@ import tensorflow as tf
 
 def make_model(hp):
     model = Sequential()                                                                        # We want a sequence of layers
-    model.add(Dense(16, input_dim=16, activation='relu'))                                       # Creating input layer with n_ins(16 nodes)
+    model.add(Dense(14, input_dim=14, activation='relu'))                                       # Creating input layer with n_ins(16 nodes)
 
 
     # Tuning number of hidden layers
@@ -30,22 +30,24 @@ def make_model(hp):
 def main():
     # Reading the dataset and seperating them into x and y data
     obesity_df = pandas.read_csv("data_processing\\Processed_data.csv")  # Reading preprocessed data
-    obesity_x = obesity_df.iloc[:, 0:16]  # Selecting input columns
-    obesity_y = obesity_df.iloc[:, 16:]  # Selecting output column
+    obesity_df = obesity_df.drop(['Height', 'Weight'], axis=1)
+
+    obesity_x = obesity_df.iloc[:, 0:14]  # Selecting input columns
+    obesity_y = obesity_df.iloc[:, 14:]  # Selecting output column
     obesity_y_encoded = pandas.get_dummies(obesity_y, columns=["NObeyesdad"])  # One hot encoding the output column
 
     # Creating the search space
     tuner = kt.RandomSearch(make_model,
                          objective='val_accuracy',
-                         max_trials=15,
-                         directory='my_dir2',
+                         max_trials=50,
+                         directory='my_dir3',
                          project_name='intro_to_kt')
 
     # Stop condition
     stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_accuracy', patience=50)
 
     # Searching
-    tuner.search(obesity_x, obesity_y_encoded, epochs=50, validation_split=0.2, callbacks=[stop_early],verbose=2)
+    tuner.search(obesity_x, obesity_y_encoded, epochs=500, validation_split=0.2, callbacks=[stop_early],verbose=2)
     # Retrieving best params
     best_hps=tuner.get_best_hyperparameters()[0].values
     print(best_hps)

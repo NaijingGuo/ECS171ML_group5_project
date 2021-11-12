@@ -98,10 +98,12 @@ def return_model(obesity_x,obesity_y_encoded):
 def main():
     # Reading the dataset and seperating them into x and y data
     obesity_df = pandas.read_csv("data_processing\\Processed_data.csv")                                        # Reading preprocessed data
-    obesity_x = obesity_df.iloc[:,0:16]                                                         # Selecting input columns
-    obesity_y = obesity_df.iloc[:,16:]                                                          # Selecting output column
-    obesity_y_encoded = pandas.get_dummies(obesity_y, columns=["NObeyesdad"])                   # One hot encoding the output column
+    obesity_df = obesity_df.drop(['Height','Weight'], axis=1)
 
+    obesity_x = obesity_df.iloc[:,0:14]                                                         # Selecting input columns
+    obesity_y = obesity_df.iloc[:,14:]                                                          # Selecting output column
+    obesity_y_encoded = pandas.get_dummies(obesity_y, columns=["NObeyesdad"])                   # One hot encoding the output column
+    print(obesity_y)
     trained_model = return_model(obesity_x,obesity_y_encoded)                                   # Receiving the trained model
     metricsToFile()                                                                             # Converting the metrics to a file
     trained_model.save('PHPTtrainedmodel.h5')                                                     # Saving trained file for hyperparameter Tuning and backend deployment

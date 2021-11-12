@@ -23,12 +23,12 @@ def visualize(TPs,TNs,FNs,FPs):
 
         ax.set(ylabel="Predicted Class", xlabel="True Class")                                   # Setting axis values
 
-        plt.savefig("metric_viz_files\\PreHPT\\confusion_matrix_epoch" + str(epoch)+".png",                   # Saving figure with name and directory
+        plt.savefig("metric_viz_files\\PostHPT\\confusion_matrix_fold" + str(epoch)+".png",                   # Saving figure with name and directory
                     bbox_inches='tight', dpi=300)
         plt.close()
 
 def main():
-    metrics = pandas.read_csv("metrics_file_PHPT.txt", header=None)                                   # Importing file made in ModelPHPT.py
+    metrics = pandas.read_csv("metrics_files/metrics_file_AHPT.txt", header=None)                                   # Importing file made in ModelPHPT.py
     TPs = metrics.iloc[5].values                                                                # Getting the values we need
     TNs = metrics.iloc[6].values
     FNs = metrics.iloc[7].values
