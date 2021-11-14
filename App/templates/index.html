@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Health Classification</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <label for="Gender">What is your Gender:</label>
+      <select id="Gender" name="Gender">
+        <option value="Yes">Male</option>
+        <option value="No">Female</option>
+      </select><br>
+      <label for="FHO">Do you have a:</label>
+      <select id="FHO" name="FHO">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+      <label for="FAVC">Do you frequently consume high caloric food:</label>
+      <select id="FAVC" name="FAVC">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+      <label for="FCVC">Do you frequently consume vegetables:</label>
+      <select id="FCVC" name="FCVC">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+      <label for="CAEC">How often do you eat between meals:</label>
+      <select id="CAEC" name="CAEC">
+        <option value="nalc">No</option>
+        <option value="salc">Sometimes</option>
+        <option value="falc">Frequently</option>
+        <option value="aalc">Always</option>
+      </select><br>
+      <label for="SMOKE">Do you smoke:</label>
+      <select id="SMOKE" name="SMOKE">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+      <label for="CH20">How much water do you drink daily:</label>
+      <select id="CH20" name="CH20">
+        <option value="lncfm">Less than a liter</option>
+        <option value="bncfm">Between 1 and 2 L</option>
+        <option value="mncfm">More than 2 L</option>
+      </select><br>
+      <label for="SCC">Do you monitor the calories you eat daily:</label>
+      <select id="SCC" name="SCC">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+      <label for="FAF">How often do you have physical activity:</label>
+      <select id="FAF" name="FAF">
+        <option value="npa">I do not have</option>
+        <option value="spa">1 or 2 days</option>
+        <option value="gpa">2 or 4 days</option>
+        <option value="mpa">4 or 5 days</option>
+      </select><br>
+      <label for="TUE">How long do you spend on your devices every day:</label>
+      <select id="TUE" name="TUE">
+        <option value="nds">0-2 hours</option>
+        <option value="sds">3-5 hours</option>
+        <option value="gds">More than 5 hours</option>
+        <option value="mds">Always</option>
+      </select><br>
+      <label for="CALC">How often do you drink alcohol:</label>
+      <select id="CALC" name="CALC">
+        <option value="nalc">No</option>
+        <option value="salc">Sometimes</option>
+        <option value="falc">Frequently</option>
+        <option value="aalc">Always</option>
+      </select><br>
+      <label for="mtrans">What is your primary mode of transportation:</label>
+      <select id="mtrans" name="mtrans">
+        <option value="Automobile">Automobile</option>
+        <option value="Motorbike">Motorbike</option>
+        <option value="pub">Public Transportation</option>
+        <option value="Bike">Bike</option>
+        <option value="Walking">Walking</option>
+      </select><br>
+      <label for="FAVC">Do you frequently consume high caloric food:</label>
+      <select id="FAVC" name="FAVC">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+      <label for="Age">How old are you:</label><input type="number" name="Age" placeholder="Age" required="required" /><br>
+      <label for="NCP">How many main meals do you eat:</label><input type="number" name="NCP" placeholder="NCP" required="required"/><br>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+   {{ prediction_text }}
+ </div>
+</body>
+</html>
