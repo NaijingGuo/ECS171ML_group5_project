@@ -1,0 +1,1 @@
+Note, the website can be launched locally by simply doing `python app.py`
