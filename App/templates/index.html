@@ -111,51 +111,12 @@
           <option value="Bike">Bike</option>
           <option value="Walking">Walking</option>
         </select><br>
-        <!-- <label for="FAVC">Do you frequently consume high caloric food?</label>
-        <select id="FAVC" name="FAVC">
-          <option value disabled selected >Select</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select><br> -->
         <label for="Age">How old are you?</label><input type="number" name="Age" placeholder="Age" required="required" /><br>
         <label for="NCP">How many main meals do you eat a day?</label><input type="number" name="NCP" placeholder="Number of Daily Meals" required="required"/><br>
         <button type="submit" id ="submit" onclick="foo()" class="btn btn-primary btn-block btn-large">Predict</button>
         <br>
       </form>
-      <!-- <div id="submit" class="modal">
-        <div class="modal-content">
-          <span class = "close">&times;</span>
-          <p>{{ prediction_text }}</p>
-        </div>
-      </div>
-      <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
-        
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-        
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-        
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-          modal.style.display = "block";
-        }
-        
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-        
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
-        </script> -->
-      
+    {{ prediction_text }}
   </div>  
 </body>
 </html>
