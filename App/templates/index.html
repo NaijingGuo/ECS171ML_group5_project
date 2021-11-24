@@ -33,6 +33,10 @@
           <option value="Yes">Male</option>
           <option value="No">Female</option>
         </select><br>
+        <script type="text/javascript">
+          document.getElementById('Gender').value = "<?php echo $_GET['Gender'];?>";
+        </script>
+
         <label for="FHO">Do you have a history of obesity in your family?</label>
         <select id="FHO" name="FHO">
           <option value disabled selected >Select</option>
@@ -54,7 +58,7 @@
         <label for="CAEC">How often do you eat between meals?</label>
         <select id="CAEC" name="CAEC">
           <option value disabled selected >Select</option>
-          <option value="nalc">No</option>
+          <option value="nalc">Never</option>
           <option value="salc">Sometimes</option>
           <option value="falc">Frequently</option>
           <option value="aalc">Always</option>
@@ -81,7 +85,7 @@
         <label for="FAF">How often do you have physical activity?</label>
         <select id="FAF" name="FAF">
           <option value disabled selected>Select</option>
-          <option value="npa">I do not</option>
+          <option value="npa">Never</option>
           <option value="spa">1 or 2 days</option>
           <option value="gpa">2 or 4 days</option>
           <option value="mpa">4 or 5 days</option>
@@ -111,12 +115,14 @@
           <option value="Bike">Bike</option>
           <option value="Walking">Walking</option>
         </select><br>
-        <label for="Age">How old are you?</label><input type="number" name="Age" placeholder="Age" required="required" /><br>
-        <label for="NCP">How many main meals do you eat a day?</label><input type="number" name="NCP" placeholder="Number of Daily Meals" required="required"/><br>
-        <button type="submit" id ="submit" onclick="foo()" class="btn btn-primary btn-block btn-large">Predict</button>
+        <label for="Age">How old are you?</label><input type="number" name="Age" placeholder="Age" required="required" />{{ prediction_text }}<br>
+        <label for="NCP">How many main meals do you eat a day?</label><input type="number" name="NCP" placeholder="Number of Daily Meals" required="required"
+          /><br>
+        <button type="submit" id ="submit" onclick="handleSubmit()" class="btn btn-primary btn-block btn-large">Predict</button>
         <br>
       </form>
     {{ prediction_text }}
   </div>  
 </body>
 </html>
+
