@@ -35,20 +35,21 @@ def metricsToFile():
 # -> True Negatives
 # -> False Negatives
 # -> False Positives
-def make_model(n_ins, n_outs, hl1, hl2, hl3,hl4,hl5):
+def make_model(n_ins, n_outs, hl1, hl2, hl3, hl4, hl5):
     model = Sequential()                                                                        # We want a sequence of layers
     model.add(Dense(n_ins, input_dim=n_ins, activation='relu'))                                 # Creating input layer with n_ins(16 nodes)
     model.add(Dense(hl1, activation='relu'))                                                    # Creating hidden layer 1 with hl1(18 nodes)
     model.add(Dense(hl2, activation='relu'))                                                    # Creating hidden layer 2 with hl2(14 nodes)
     model.add(Dense(hl3, activation='relu'))                                                    # Creating hidden layer 3 with hl3(28 nodes)
-    model.add(Dense(hl3, activation='relu'))                                                    # Creating hidden layer 3 with hl3(10 nodes)
-    model.add(Dense(hl3, activation='relu'))                                                    # Creating hidden layer 3 with hl3(20 nodes)
+    model.add(Dense(hl4, activation='relu'))                                                    # Creating hidden layer 3 with hl3(10 nodes)
+    model.add(Dense(hl5, activation='relu'))                                                    # Creating hidden layer 3 with hl3(20 nodes)
     model.add(Dense(n_outs, activation='softmax'))                                              # Creating output layer with n_outs(7 nodes)
 
     model.compile(loss="categorical_crossentropy", optimizer="adam",
                   metrics=["accuracy", "mean_squared_error", keras.metrics.Precision(), keras.metrics.Recall()
                       , keras.metrics.TruePositives()
-                      , keras.metrics.TrueNegatives(), keras.metrics.FalseNegatives()           # Compiling with specified charactertics
+                      , keras.metrics.TrueNegatives()
+                      , keras.metrics.FalseNegatives()                                          # Compiling with specified charactertics
                       , keras.metrics.FalsePositives()])                                        # and returning specified metrics
 
     return model  # returning model
@@ -79,7 +80,7 @@ def return_model(obesity_x,obesity_y_encoded):
             X_test = pandas.concat([X_test, obesity_x.iloc[[i]]])                               # Appending X_test values
             Y_test = pandas.concat([Y_test, obesity_y_encoded.iloc[[i]]])                       # Appending Y_test values
 
-        model = make_model(X_train.shape[1], Y_train.shape[1], 18, 14,28,10,20)                       # Making a model while passing input and output dims
+        model = make_model(X_train.shape[1], Y_train.shape[1], 18, 14, 28, 10, 20)                       # Making a model while passing input and output dims
                                                                                                 # and hidden layer sizes
         print("Training Model")
         model.fit(X_train, Y_train, epochs=500, verbose=0)                                      # Fitting model per KFold
