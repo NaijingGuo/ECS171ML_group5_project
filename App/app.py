@@ -34,7 +34,7 @@ def predict():
             features.append(value)
     features = np.array([features], dtype=np.float)
     prediction = str(np.argmax(model.predict(features)))
-    return render_template("index.html", prediction_text = "The health classification is {}".format(mapping_labels[prediction]))
+    return render_template("index.html", prediction_text = f"The health classification is {mapping_labels[prediction]}")
 
 if __name__ == "__main__":
     flask_app.run(debug=True)
