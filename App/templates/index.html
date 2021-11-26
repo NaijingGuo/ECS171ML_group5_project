@@ -6,12 +6,7 @@
   <meta charset="UTF-8">
   <meta content = "width=device-width, initial-scale=1.0">
   <title>ML API</title>
-  <link rel ="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
-  <!-- <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'> -->
-  
+  <link rel ="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">  
 </head>
 
 <body>
@@ -52,7 +47,7 @@
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select><br>
-        <label for="NCP">How many main meals do you eat a day?</label><input type="number" name="NCP" placeholder="Number of Daily Meals" required="required"/><br>
+        <label for="NCP">How many main meals do you eat a day?</label><input type="float" name="NCP" placeholder="Number of Daily Meals" required="required"/><br>
         <label for="CAEC">How often do you eat between meals?</label>
         <select id="CAEC" name="CAEC">
           <option value disabled selected >Select</option>
