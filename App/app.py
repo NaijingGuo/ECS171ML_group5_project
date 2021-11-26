@@ -2,13 +2,6 @@ import numpy as np
 from flask import Flask, request, render_template
 from keras.models import load_model 
 
-# import easyforms
-
-# @app.route('/some-url', method=['GET', 'POST'])
-# def some_view_function():
-    
-
-# Create flask app
 flask_app = Flask(__name__)
 model = load_model('AHPTtrainedNNmodel.h5')
 
@@ -16,8 +9,8 @@ mapping_features = {
     "Yes": 1,"No": 0,"lncfm": 0,"bncfm": 0.5,"mncfm": 1,
     "npa": 0,"spa": 1/3,"gpa": 2/3,"mpa": 1,"nds": 0,
     "sds": 1/3,"gds": 2/3,"mds": 1,"nalc": 0,"salc": 1/3,
-    "falc": 2/3,"aalc": 1,"Automobile": 0,"Motorbike": 1,
-    "pub": 2,"Bike": 3,"Walking": 4
+    "falc": 2/3,"aalc": 1,"Automobile": 0,"Motorbike": 1/4,
+    "pub": 1/2,"Bike": 3/4,"Walking": 1
 }
 mapping_labels = {
     "0": "Insufficient_Weight",
@@ -35,20 +28,16 @@ def Home():
 @flask_app.route("/predict", methods = ["POST"])
 def predict():
     features = []
-    print('Entered Predict')
-    for value in request.form.values():
-        print(value)
-    # print(request.form.values())
-    for value in request.form.values():
+    for i, value in enumerate(request.form.values()):
         if value in mapping_features:
             features.append(mapping_features[value])
         else:
-            features.append(value)
+            if i == 12: features.append((float(value)-14)/47)
+            else: features.append((float(value)-1)/3)
     features = np.array([features], dtype=np.float)
     prediction = str(np.argmax(model.predict(features)))
-
+    
     out = {}
-
     if request.form['Gender'] == 'No':
         out['Gender?'] = "Female" 
     else:

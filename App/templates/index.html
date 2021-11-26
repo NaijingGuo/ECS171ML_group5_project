@@ -24,7 +24,6 @@
         <label>Please complete the below questionnaire.</label>
         <label for="Gender">What is your sex?</label>
         <select id="Gender" name="Gender">
-          <option value disabled selected >Select</option>
           <option value="Yes">Male</option>
           <option value="No">Female</option>
         </select><br>
@@ -50,7 +49,6 @@
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select><br>
-        <label for="NCP">How many main meals do you eat a day?</label><input type="float" name="NCP" placeholder="Number of Daily Meals" required="required"/><br>
         <label for="CAEC">How often do you eat between meals?</label>
         <select id="CAEC" name="CAEC">
           <option value disabled selected >Select</option>
@@ -111,9 +109,10 @@
           <option value="Bike">Bike</option>
           <option value="Walking">Walking</option>
         </select><br>
-        <label for="Age">How old are you?</label><input type="number" name="Age" placeholder="Age" required="required" />{{ prediction_text }}<br>
-        <label for="NCP">How many main meals do you eat a day?</label><input type="number" name="NCP" placeholder="Number of Daily Meals" required="required"
-          /><br>
+          <label for="Age">How old are you?</label>
+          <input type="float" name="Age" value="Age" placeholder="Age" required="required"/><br>
+          <label for="NCP">How many main meals do you eat a day?</label>
+          <input type="float" name="NCP" value="NCP" placeholder="Number of Daily Meals" required="required"/><br>
         <button type="submit" id ="submit" onclick="handleSubmit()" class="btn btn-primary btn-block btn-large">Predict</button>
         <br>
       </form>
