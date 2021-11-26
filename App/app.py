@@ -17,7 +17,10 @@ mapping_labels = {
     "1": "Normal_Weight",
     "2": "Overweight_Level_I",
     "3": "Overweight_Level_II",
-    "4": "Overweight_Level_III"
+    "4": "Overweight_Level_III",
+    "5": "Obesity_Type_I",
+    "6": "Obesity_Type_II",
+    "7": "Obesity_Type_III"
 }
 
 @flask_app.route("/")
